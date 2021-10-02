@@ -55,14 +55,17 @@ html, body {
 
   #HotelName {
     margin-left: 40px;
+    margin-top: 30px;
     display: inline-block;
     color: #000742 ;
     font-size: 35px;
     font-weight: bold;
+    position: absolute;
   }  
 
   header{
     margin-top: 15px;
+    margin-left: 300px;
     font-family: Calibri;
     font-size: 18px;
     display: inline-block;
@@ -93,6 +96,9 @@ html, body {
   }
   #menu>li>ul{
     display: none;
+    position: absolute;
+    background-color: #FF7038;
+    padding: 5px;
   }
   #menu>li:hover>ul {
     display:block;
