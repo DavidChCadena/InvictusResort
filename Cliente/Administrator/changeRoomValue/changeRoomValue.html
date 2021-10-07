@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleChangeRoomValue.css">
+    <title>Invictus resort</title>
+</head>
+<body>
+    <div id="container">
+      <a id="HotelName" href="../initAdministrator/initAdministrator.html">INVICTUS RESORT</a>
+      <header>
+          <nav>
+            <ul id="menu">
+              <li><a href="../changeRoomValue/changeRoomValue.html">CAMBIAR PRECIO HABITACION</a></li>
+              <li><a href="../changeRoomStatus/changeStatusRoom.html">CAMBIAR ESTATUS HABITACION</a></li>
+              <li><a href="../changeValueService/changeValueServices.html">CAMBIAR PRECIO SERVICIOS</a></li>
+            </ul>
+          </nav>
+        </header>
+      <div id="Center">
+        <h1 id="Subtitle">Cambiar precio habitacion</h1>
+        <button class="btn" id="button" onclick=getRoom()>Actualizar habitaciones</button>              
+        <div class="section">
+            <table>
+              <thead>
+                <tr>
+                  <th>Id. habitacion</th>
+                  <th>Tipo habitacion</th>
+                  <th>Precio</th>
+                </tr>
+              </thead>
+              <tbody id="roomTable">
+              </tbody>
+            </table>
+        </div>
+        <li>
+          <Label for="ChooseRoom">Escriba id habitacion a cambiar precio:</Label>
+          <input type="ChooseRoom" id = "idRoom">
+        </li>
+        <li>
+          <Label for="ChooseRoom">Escriba nuevo valor habitacion:</Label>
+          <input type="ChooseRoom" id = "price">
+        </li>
+        <input type=button onclick=changeValueRoom() value="Cambiar precio">
+      </div>
+    </div>
+    <script src="../modeAdmin.js"></script>
+</body>
+</html>

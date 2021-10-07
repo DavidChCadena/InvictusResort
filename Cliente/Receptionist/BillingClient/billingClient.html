@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleBookARoom.css">
+    <link rel="stylesheet" href="styleBillingClient.css">
     <title>Invictus resort</title>
 </head>
 <body>
@@ -18,19 +18,19 @@
               <li><a href="../DeleteABook/DeleteABook.html">ELIMINAR RESERVAR</a></li>  
               <li><a href="">FACTURAR CLIENTE</a>
                 <ul id="DropDown">
-                  <li><a href="../BillingClient/billingClient.html">CREAR FACTURA</a></li>
+                  <li><a href="'../BillingClient/billingClient.html'; " >CREAR FACTURA</a></li>
                   <li><a href="../BillingClient/addService.html">AÑADIR CONSUMO</a></li>
                 </ul>
-              </li> 
+              </li>               
             </ul>
           </nav>
         </header>
       <div id="Center">
-        <h1 id="Subtitle">Reservar habitacion</h1>
+        <h1 id="Subtitle">Crear factura</h1>
         <p id="idRecepcionist">Recepcionista No: </p>
-        <h3 id = "recepcionist">Id. Recepcionista</h3>
+        <h3>Id. Recepcionista</h3>
         <p> Hotel:</p>
-        <h3 id="hotel">Nombre Hotel</h3>
+        <h3>Nombre Hotel</h3>
         <br>
         <br>
         <button class="btn" id="button" onclick=getClientList()>Actualizar clientes</button>
@@ -48,38 +48,32 @@
             </table>
         </div>
         <li>
-          <Label for="idClient">Escriba id cliente a reservar habitacion:</Label>
+          <Label for="idClient">Escriba id cliente a crear fractura:</Label>
           <input type="idClient" id="idClient">
         </li>
-        <button class="btn" id="button" onclick=getRoomList()>Actualizar habitaciones</button>              
+        <input type=button onclick=billingClient() value="Crear factura" id="Crear">
         <div class="section">
-            <table>
-              <thead>
-                <tr>
-                  <th>Id. habitacion</th>
-                  <th>Disponibilidad</th>
-                  <th>Precio</th>
-                </tr>
-              </thead>
-              <tbody id="roomTable">
-              </tbody>
-            </table>
-        </div>
-        <li>
-          <Label for="ChooseRoom">Escriba id habitación a reservar:</Label>
-          <input type="ChooseRoom" id="idRoom">
-        </li>
-        <li>
-          <label for="ChooseInitDate">Seleccione fecha inicial:</label>
-          <input type="date" id="checkIn">
-        </li>
-        <li>
-          <label for="ChooseFinalDate">Seleccione fecha final:</label>
-          <input type="date" id=checkOut>
-        </li>
-        <input type=button onclick=reserve() value="Reservar" id="Reservar">
+          <table>
+            <thead>
+              <tr>
+                <th>Id. Reserva</th>
+                <th>Estado</th>
+                <th>Abono</th>
+                <th>Deuda</th>
+              </tr>
+            </thead>
+            <tbody id="reserveTable">
+
+            </tbody>
+          </table>
       </div>
+      <li>
+        <Label for="idClient">Escriba monto de abono: (No es obligatorio)</Label>
+        <input type="idClient" id="payment">
+        <input type=button onclick=billingClient() value="Abonar" id="Abonar">
+      </li>  
+      </div>
+      <script src="modeClient.js"></script>
     </div>
-    <script src="bookARoomJava.js"></script>
 </body>
-</html>
+</html> 

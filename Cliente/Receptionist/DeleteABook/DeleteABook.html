@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleRegisteClient.css">
+    <link rel="stylesheet" href="styleDeleteABook.css">
     <title>Invictus resort</title>
 </head>
 <body>
@@ -15,43 +15,44 @@
             <ul id="menu">
               <li><a href="../ClientRegister/registerClient.html">REGISTRAR CLIENTE</a></li>
               <li><a href="../BookARoom/bookARoom.html">RESERVAR HABITACION</a></li>
-              <li><a href="../DeleteABook/DeleteABook.html">ELIMINAR RESERVAR</a></li>  
+              <li><a href="../DeleteABook/DeleteABook.html">ELIMINAR RESERVA</a></li>  
               <li><a href="">FACTURAR CLIENTE</a>
                 <ul id="DropDown">
                   <li><a href="../BillingClient/billingClient.html">CREAR FACTURA</a></li>
                   <li><a href="../BillingClient/addService.html">AÑADIR CONSUMO</a></li>
                 </ul>
-              </li>
+              </li>  
             </ul>
           </nav>
         </header>
       <div id="Center">
-        <h1 id="Subtitle">Registro cliente</h1>
+        <h1 id="Subtitle">Eliminar reserva</h1>
         <p id="idRecepcionist">Recepcionista No: </p>
         <h3>Id. Recepcionista</h3>
         <p> Hotel:</p>
         <h3>Nombre Hotel</h3>
         <br>
         <br>
-        <li id="Center-NameClient">
-          <label for="NameClient">Nombre:</label>
-          <input type="NameClient" id="name">
+        <button class="btn" id="button" onclick=getReserveList()>Actualizar reservas</button>              
+        <div class="section">
+            <table>
+              <thead>
+                <tr>
+                  <th>Id. Reserva</th>
+                  <th>Nombre titular</th>
+                </tr>
+              </thead>
+              <tbody id="reserveTable">
+              </tbody>
+            </table>
+        </div>
+        <li>
+          <Label for="ChooseRoom">Escriba id reserva a eliminar:</Label>
+          <input type="ChooseRoom" id="idReserve">
         </li>
-        <li id="Center-NameClient">
-          <label for="LastNameClient">Apellido:</label>
-          <input type="LastNameClient" id="lastName">
-        </li>        
-        <li id="Center-NameClient">
-          <label for="IdClient">No. Identificacion:</label>
-          <input type="idClient" id="idClient">
-        </li>
-        <li id="Center-NameClient">
-          <label for="PhoneClient">Celular:</label>
-          <input type="PhoneClient" id="phone">
-        </li>
-        <input type=button onclick= registerClient() value="Registrar" id="register">
+        <input type=button onclick=deleteReserve() value="Eliminar reserva" id="EliminarReserva">
       </div>
-      <script src="../BookARoom/bookARoomJava.js"></script>
     </div>
+    <script src="../BookARoom/bookARoomJava.js"></script>
 </body>
 </html>
