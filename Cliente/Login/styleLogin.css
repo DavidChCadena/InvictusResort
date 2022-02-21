@@ -16,9 +16,9 @@ html, body {
     width: 100%;
     height: 100%;
     font-family:  Calibri;
-    color: #444;
+    color: white;
     -webkit-font-smoothing: antialiased;
-    background: #000742;
+    background: #848DAB;
  
 }
  
@@ -30,7 +30,7 @@ html, body {
     left: 50%;
     margin-top: -140px;
     margin-left: -170px;
-    background: #FF7038;
+    background: #2C385E;
     border-radius: 3px;
     border: 1px solid white;
     box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
@@ -57,7 +57,7 @@ form {
 }
  
 label {
-    color: black;
+    color: white;
     display: inline-block;
     margin-left: 18px;
     padding-top: 10px;
@@ -66,7 +66,7 @@ label {
  
 label[for=TitleWelcome] {
     margin-top: 0;
-    margin-left: 28%;
+    margin-left: 23%;
     margin-right: 10%;
     font-size: 30px;
     font-weight: bold;
@@ -78,7 +78,7 @@ label[for=name]{
 
 p a {
     font-size: 11px;
-    color: #000742;
+    color: #ACB8DE;
     float: right;
     margin-top: -13px;
     margin-right: 20px;
@@ -88,7 +88,7 @@ p a {
 }
  
 p a:hover {
-    color: #222D8F;
+    color: #ACB8DE;
 }
  
 input {
@@ -127,7 +127,7 @@ input[type=password]:focus {
 }
  
 #lower {
-    background: #222D8F;
+    background: #ACB8DE;
     width: 100%;
     height: 69px;
     margin-top: 20px;
@@ -145,7 +145,7 @@ input[type=checkbox] {
 .check {
     margin-left: 3px;
     font-size: 11px;
-    color: white;
+    color: black;
 }
  
 input[type=submit] {
@@ -157,16 +157,16 @@ input[type=submit] {
     font-size: 14px;
     font-weight: bold;
     color: white;
-    background-color: #FF7038;
+    background-color: #494E5E;
     border-radius: 30px;
-    border: 1px solid #000742;
+    border: 1px solid #2C385E;
     box-shadow: 0 1px 2px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .5);
     cursor: pointer;
 }
  
 input[type=submit]:hover {
-    background-color: #000742;
-    border: 1px solid #FF7038;
+    background-color: #2C385E;
+    border: 1px solid #494E5E;
 }
  
 input[type=submit]:active {
