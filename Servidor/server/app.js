@@ -1,6 +1,8 @@
 const express = require('express')
+const cors = require('cors');
 const port = 3000
 const app = express()
+app.use(cors());
 var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
@@ -42,7 +44,7 @@ app.post('/login',jsonParser,(req, res) =>{
         if (error) throw error        
         if(results.rows.length == 0) {
             res.send("Error de usuario")
-        }else{
+        }else{ 
             bcrypt.compare(pass, results.rows[0]["pass"], (err, coinciden) => {
                 if (err) {
                     console.log("--Error comprobando:", err);
@@ -70,5 +72,5 @@ app.post('/login',jsonParser,(req, res) =>{
 
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`App listening at http://localhost:${port}`)
 })

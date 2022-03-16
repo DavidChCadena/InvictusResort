@@ -1,11 +1,17 @@
 html, body {
     width: 100%;
     height: 100%;
-    font-family:  Calibri;
     color: #444;
+    font-family: "san francisco";
     -webkit-font-smoothing: antialiased;
     background: #848DAB;
  
+}
+
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
 }
 
 #container {
@@ -16,7 +22,7 @@ html, body {
     left: 10%;
     right: 10%;
     background: #2C385E;
-    border-radius: 3px;
+    border-radius: 10px;
     border: 1px solid white;
     box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
     -webkit-animation-name: bounceIn;
@@ -43,7 +49,7 @@ html, body {
     margin-left: 3%;
     margin-right: 3%;
     background: rgba(245, 245, 245, 0.87);
-    border-radius: 3px;
+    border-radius: 10px;
     border: 1px solid white;
     box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
     
@@ -63,8 +69,7 @@ html, body {
 
   header{
     margin-top: 15px;
-    font-family: Calibri;
-    font-size: 18px;
+    font-size: 20px;
     display: inline-block;
   }
 
@@ -76,13 +81,17 @@ html, body {
     list-style: none;
   }
 
+  #menu {
+    padding-left:100px;
+  }
+
   #menu li>a{
     color: white;
-    padding-left: 15px;
+    padding-left: 8px;
     margin: 0 auto;
     display: block;
     text-decoration: none;
-    width: 140px;
+    width: 120px;
   }
   #menu li>a:hover{
     color: white;
@@ -125,3 +134,5 @@ html, body {
     z-index: 3;
     font-weight: bold;
   }
+
+  
