@@ -1,34 +1,22 @@
 [
     {
         "IdHabitacion": 1,
-        "disponibilidad": true
+        "disponibilidad": true,
+        "precio": 20000
     },
     {
         "IdHabitacion": 2,
-        "disponibilidad": false
+        "disponibilidad": false,
+        "precio": 25000
     },
     {
         "IdHabitacion": 3,
-        "disponibilidad": true
+        "disponibilidad": true,
+        "precio": 30000
     },
     {
         "IdHabitacion": 4,
-        "disponibilidad": true
-    },
-    {
-        "IdHabitacion": 5,
-        "disponibilidad": true
-    },
-    {
-        "IdHabitacion": 6,
-        "disponibilidad": false
-    },
-    {
-        "IdHabitacion": 7,
-        "disponibilidad": true
-    },
-    {
-        "IdHabitacion": 8,
-        "disponibilidad": true
+        "disponibilidad": true,
+        "precio":40000
     }
 ]

@@ -55,6 +55,7 @@ html, body {
 
   #HotelName {
     margin-left: 40px;
+    margin-top: 30px;
     display: inline-block;
     color: #000742 ;
     font-size: 35px;
@@ -93,6 +94,9 @@ html, body {
   }
   #menu>li>ul{
     display: none;
+    position: absolute;
+    background-color: #FF7038;
+    padding: 5px;
   }
   #menu>li:hover>ul {
     display:block;

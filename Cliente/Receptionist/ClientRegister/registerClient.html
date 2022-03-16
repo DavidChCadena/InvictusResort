@@ -22,24 +22,31 @@
         </header>
       <div id="Center">
         <h1 id="Subtitle">Registro cliente</h1>
+        <p id="idRecepcionist">Recepcionista No: </p>
+        <h3>Id. Recepcionista</h3>
+        <p> Hotel:</p>
+        <h3>Nombre Hotel</h3>
+        <br>
+        <br>
         <li id="Center-NameClient">
           <label for="NameClient">Nombre:</label>
-          <input type="NameClient">
+          <input type="NameClient" id="name">
         </li>
         <li id="Center-NameClient">
           <label for="LastNameClient">Apellido:</label>
-          <input type="LastNameClient">
+          <input type="LastNameClient" id="lastName">
         </li>        
         <li id="Center-NameClient">
           <label for="IdClient">No. Identificacion:</label>
-          <input type="idClient">
+          <input type="idClient" id="idClient">
         </li>
         <li id="Center-NameClient">
           <label for="PhoneClient">Celular:</label>
-          <input type="PhoneClient">
+          <input type="PhoneClient" id="phone">
         </li>
-        <input type="submit" value="Registrar">
+        <input type=button onclick= registerClient() value="Registrar" id="register">
       </div>
+      <script src="modeRegister.js"></script>
     </div>
 </body>
 </html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleAddService.css">
+    <title>Invictus resort</title>
+</head>
+<body>
+    <div id="container">
+      <a id="HotelName" href="../initReceptionist/ViewReceptionist.html">INVICTUS RESORT</a>
+      <header>
+          <nav>
+            <ul id="menu">
+              <li><a href="../ClientRegister/registerClient.html">REGISTRAR CLIENTE</a></li>
+              <li><a href="../BookARoom/bookARoom.html">RESERVAR HABITACION</a></li>
+              <li><a href="../DeleteABook/DeleteABook.html">ELIMINAR RESERVAR</a></li>  
+              <li><a href="">FACTURAR CLIENTE</a>
+                <ul id="DropDown">
+                  <li><a href="../BillingClient/billingClient.html">CREAR FACTURA</a></li>
+                  <li><a href="../BillingClient/addService.html">AÑADIR CONSUMO</a></li>
+                </ul>
+              </li>               
+            </ul>
+          </nav>
+        </header>
+      <div id="Center">        
+        <h1 id="Subtitle">Añadir servicio</h1>
+        <p id="idRecepcionist">Recepcionista No: </p>
+        <h3>Id. Recepcionista</h3>
+        <p> Hotel:</p>
+        <h3>Nombre Hotel</h3>
+        <br>
+        <br>        
+        <div class="section">          
+          <table>
+            <thead>
+              <tr>
+                <th>Id. Servicio</th>
+                <th>Clase de servicio</th>
+                <th>tipo de servicio</th>
+              </tr>
+            </thead>
+            <tbody id="serviceTable">
+
+            </tbody>
+          </table>
+      </div>
+        <li>
+          <Label for="ChooseRoom">Escriba id servicio a añadir:</Label>
+          <input type="ChooseRoom" id="idService">
+        </li>
+        <button class="btn" id="button" onclick= getClientList()>Actualizar clientes</button>
+        <div class="section">          
+            <table>
+              <thead>
+                <tr>
+                  <th>Id. Cliente</th>
+                  <th>Nombre cliente</th>
+                </tr>
+              </thead>
+              <tbody id="clientTable">
+
+              </tbody>
+            </table>
+        </div>
+        <li>
+          <Label for="idClient">Escriba id cliente a añadir servicio:</Label>
+          <input type="idClient" id = "idClient">
+        </li>
+        <input type=button onclick=addService() value="Añadir servicio" id="AñadirServicio">
+        <script src="modeClient.js"></script>
+      </div>
+    </div>
+</body>
+</html>

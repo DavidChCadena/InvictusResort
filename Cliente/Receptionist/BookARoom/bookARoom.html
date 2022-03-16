@@ -22,16 +22,42 @@
         </header>
       <div id="Center">
         <h1 id="Subtitle">Reservar habitacion</h1>
-        <button class="btn" id="button">Actualizar habitaciones</button>              
+        <p id="idRecepcionist">Recepcionista No: </p>
+        <h3 id = "recepcionist">Id. Recepcionista</h3>
+        <p> Hotel:</p>
+        <h3 id="hotel">Nombre Hotel</h3>
+        <br>
+        <br>
+        <button class="btn" id="button" onclick=getClientList()>Actualizar clientes</button>
+        <div class="section">
+            <table>
+              <thead>
+                <tr>
+                  <th>Id. Cliente</th>
+                  <th>Nombre cliente</th>
+                </tr>
+              </thead>
+              <tbody id="clientTable">
+
+              </tbody>
+            </table>
+        </div>
+        <li>
+          <Label for="idClient">Escriba id cliente a reservar habitacion:</Label>
+          <input type="idClient" id="idClient">
+        </li>
+        <button class="btn" id="button" onclick=getRoomList()>Actualizar habitaciones</button>              
         <div class="section">
             <table>
               <thead>
                 <tr>
                   <th>Id. habitacion</th>
+                  <th>tipo de habitacion</th>
                   <th>Disponibilidad</th>
+                  <th>Precio</th>
                 </tr>
               </thead>
-              <tbody id="res">
+              <tbody id="roomTable">
               </tbody>
             </table>
         </div>

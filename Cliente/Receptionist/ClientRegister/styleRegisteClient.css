@@ -45,7 +45,7 @@ html, body {
     border-radius: 3px;
     border: 1px solid white;
     box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
-    
+    overflow-y: scroll;
 }
 
   h1,h2 {
@@ -54,6 +54,7 @@ html, body {
 
   #HotelName {
     margin-left: 40px;
+    margin-top: 30px;
     display: inline-block;
     color: #000742 ;
     font-size: 35px;
@@ -62,6 +63,7 @@ html, body {
 
   header{
     margin-top: 15px;
+    margin-left: 300px;
     font-family: Calibri;
     font-size: 18px;
     display: inline-block;
@@ -92,6 +94,9 @@ html, body {
   }
   #menu>li>ul{
     display: none;
+    position: absolute;
+    background-color: #FF7038;
+    padding: 5px;
   }
   #menu>li:hover>ul {
     display:block;
@@ -127,15 +132,6 @@ html, body {
     font-size: 28px;
   }
 
-  input[type=submit] {
-    width: 20%;
-    margin-left: 40%;
-    margin-top: 30px;
-    color: black;
-    font-weight: bold;
-    background-color: #ff70388f;
-  }
-
   input[type=submit]:hover {
     background-color: #000742;
     color: whitesmoke;
@@ -147,4 +143,27 @@ html, body {
     margin-bottom: 10%;    
     margin-bottom: 20px;
     list-style: none;
+  }
+
+  #register {
+    width: 20%;
+    margin-left: 40%;
+    margin-top: 30px;
+    color: black;
+    font-weight: bold;
+    background-color: #ff70388f;
+  }
+
+  #idRecepcionist {
+    margin-left: 30px;
+  }
+
+  p {
+    display: inline;
+    font-size: 20px;
+    margin-left: 5px;
+  }
+  
+  h3 {
+    display: inline;
   }
