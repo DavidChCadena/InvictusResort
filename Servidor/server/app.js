@@ -1,9 +1,12 @@
 const express = require('express')
 const port = 3000
 const app = express()
+var cors = require('cors')
 var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
+app.use(cors())
 
 const bcrypt = require("bcryptjs")
 const Pool = require('pg').Pool
@@ -27,7 +30,7 @@ app.post('/', jsonParser,(req, res) =>{
 })
 
 app.get('/clientes', (req, res) => {
-  pool.query('SELECT id, nombre FROM clientes', (error, results) => {
+  pool.query('SELECT id, nombre as name FROM clientes', (error, results) => {
     if (error) {
       throw error
     }
@@ -36,34 +39,31 @@ app.get('/clientes', (req, res) => {
 })
 
 app.post('/login',jsonParser,(req, res) =>{
-    const id = req.body[0]["id_trabajador"]     
-    const pass = req.body[0]["contrasenia"]  
-    pool.query('SELECT id_trabajador worker, contrasenia_trabajador pass, cargo_trabajador charge\
+    const id = req.body[0]["user"]     
+    const pass = req.body[0]["password"]  
+    pool.query('SELECT id worker, contrasenia pass, upper(telefono) car \
                 FROM trabajadores \
-                WHERE id_trabajador = $1',[id] ,(error, results) => {
+                WHERE id = $1',[id] ,(error, results) => {
         if (error) throw error        
         if(results.rows.length == 0) {
-            res.send("Error de usuario")
+            res.send("0")
         }else{
-            bcrypt.compare(pass, results.rows[0]["pass"], (err, coinciden) => {
-                if (err) {
-                    console.log("--Error comprobando:", err);
-                } else {                    
-                    if(coinciden){
-                        console.log("--Ha iniciado sesión: " + id);
-                        res.send("Bienvenido")
-                    } else {
-                        res.send("Error contraseña")
-                    }
-                }
-            });
+          if (pass == results.rows[0]["pass"]){
+            if(results.rows[0]["car"] == 'ADMINISTRADOR'){
+              res.send("200")
+            }else if (results.rows[0]["car"] == 'RECEPCIONISTA'){
+              res.send("201")
+            }            
+          }else{
+            res.send("1")
+          }            
         }
       })
 })
 
 app.post('/register',jsonParser,(req, res) =>{
   const name = req.body[0]["name"]
-  const sname = req.body[0]["secondName"]
+  const sname = req.body[0]["lastname"]
   const id = req.body[0]["id"]
   const phone = req.body[0]["phone"]
   pool.query("select id         \
@@ -71,25 +71,25 @@ app.post('/register',jsonParser,(req, res) =>{
               where id = $1",[id],(error, results) => {
     if (error) throw error        
     if(results.rows.length != 0) {
-      res.send("Id ya existe")        
+      console.log("Error")
+      res.send("1")        
     }else{      
       const fullname = name + ' ' + sname
       pool.query("insert into clientes(id, nombre, telefono)  \
                   values ($1, upper($2), $3)", [id, fullname, phone], (error, results)=>{
                     if (error) throw error
                     console.log(results)
-                    res.send("Usuario añadido")
+                    res.send("0")
                   })
     }    
   })
 })
 
-app.post('/rooms',jsonParser,(req, res) =>{
-  const id_hotel = req.body[0]["id_hotel"]
-  pool.query("select hb.id, ht.nombre, estado, tipo, valor \
+app.get('/rooms',jsonParser,(req, res) =>{
+    pool.query("select hb.id as IdHabitacion, ht.nombre,   \
+              estado as disponibilidad, tipo as tipoHabitacion, valor as precio \
               from habitaciones hb, hoteles ht             \
-              where ht.id = hb.id_hotel                    \
-              and ht.id = $1",[id_hotel], (error, results) => {
+              where ht.id = hb.id_hotel", (error, results) => {
     if (error) {
       throw error
     }
@@ -97,25 +97,44 @@ app.post('/rooms',jsonParser,(req, res) =>{
   })
 })
 
-app.post('/reservation', jsonParser, (req,res) =>{
-  const id_hotel = req.body[0]["id_hotel"]  
-  const id_cliente = req.body[0]["id_cliente"]
-  const id_trabajador = req.body[0]["id_trabajador"]
-  const fecha_inicio = req.body[0]["fecha_inicio"]
-  const fecha_fin = req.body[0]["fecha_fin"]
-  const id_habitacion = req.body[0]["id_habitacion"]
-  const comodidades = req.body[0]["comodidades"]
-
+app.get('/reserveList', jsonParser, (req,res) =>{
+  pool.query("select r.id as idreserva, nombre as titular \
+  from clientes c, reservas r           \
+  where r.id_cliente = c.id", (error, results) =>{
+    if (error) {
+      throw error
+    }
+    res.status(200).json(results.rows) 
+  })
 })
 
-//Encriptar contraseñas (cadenaAEnctriptar, nRecorridos)
-/*bcrypt.hash("barbara", 10, (err, palabraSecretaEncriptada) => {
-	if (err) {
-		console.log("Error hasheando:", err);
-	} else {
-		console.log("Y hasheada es: " + palabraSecretaEncriptada);
-	}
-});*/
+app.post('/reservation', jsonParser, (req,res) =>{
+  console.log(req.body)
+  const id_cliente = req.body[0]["id"]
+  const id_trabajador = req.body[0]["id_trabajador"]
+  const fecha_inicio = req.body[0]["checkIn"]
+  const fecha_fin = req.body[0]["checkOut"]
+  const id_habitacion = req.body[0]["idRoom"]
+
+  pool.query("insert into reservas(fecha_inicio, fecha_fin, id_cliente, id_trabajador) \
+              values($1, $2, $3, 1036219263)", [fecha_inicio, fecha_fin, id_cliente], (error, results) => {
+                if (error) throw error
+                    console.log(results)                    
+              })
+  res.send("Almacenada")                  
+  })
+
+app.post('/delReserve',jsonParser,(req, res) =>{
+  const id = req.body[0]["idReserve"]
+    
+  pool.query("delete from reservas where id = $1",[id],(error, results) => {
+    if (error) throw error
+    console.log(results) 
+  })
+  res.send("Eliminada")
+})
+
+
 
 
 app.listen(port, () => {

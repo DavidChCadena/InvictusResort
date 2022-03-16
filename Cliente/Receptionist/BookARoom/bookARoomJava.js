@@ -1,7 +1,7 @@
 
 function getRoomList() {
     const xhttp = new XMLHttpRequest();
-    xhttp.open('GET', 'http://localhost:3000/roomList', true);
+    xhttp.open('GET', 'http://localhost:3000/rooms', true);
     xhttp.send();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -12,7 +12,8 @@ function getRoomList() {
             for (let item of datos) {
                 res.innerHTML += `
                     <tr>
-                        <td>${item.IdHabitacion}</td>
+                        <td>${item.idhabitacion}</td>
+                        <td>${item.tipohabitacion}</td>
                         <td>${item.disponibilidad}</td>
                         <td>${item.precio}</td>
                     <tr>
@@ -35,7 +36,7 @@ function getReserveList() {
             for (let item of datos) {
                 res.innerHTML += `
                     <tr>
-                        <td>${item.idReserva}</td>
+                        <td>${item.idreserva}</td>
                         <td>${item.titular}</tdZ
                     <tr>
                 `
@@ -46,7 +47,7 @@ function getReserveList() {
 
 function getClientList() {
     const xhttp = new XMLHttpRequest();
-    xhttp.open('GET', 'http://localhost:3000/data', true);
+    xhttp.open('GET', 'http://localhost:3000/clientes', true);
     xhttp.send();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -69,7 +70,7 @@ function getClientList() {
 
 function reserve() {
     const http = new XMLHttpRequest();
-    const url = `http://localhost:3000/reserveRoom`;
+    const url = `http://localhost:3000/reservation`;
     http.open("POST", url, true);
     http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     const idClient = document.getElementById("idClient").value;
@@ -84,7 +85,7 @@ function reserve() {
             alert("Error:\n No se ha podido relizar la reserva.\Intente de nuevo mas tarde")
         }
     }
-    http.send(JSON.stringify([{ id: idClient, idRoom: idRoom, checkIn: checkIn, chekOut: checkOut }]));
+    http.send(JSON.stringify([{ id: idClient, idRoom: idRoom, checkIn: checkIn, checkOut: checkOut }]));
 }
 
 function deleteReserve() {
