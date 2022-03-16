@@ -15,25 +15,14 @@
             <ul id="menu">
               <li><a href="../ClientRegister/registerClient.html">REGISTRAR CLIENTE</a></li>
               <li><a href="../BookARoom/bookARoom.html">RESERVAR HABITACION</a></li>
-              <li><a href="../DeleteABook/DeleteABook.html">ELIMINAR RESERVA</a></li>  
-              <li><a href="">FACTURAR CLIENTE</a>
-                <ul id="DropDown">
-                  <li><a href="../BillingClient/billingClient.html">CREAR FACTURA</a></li>
-                  <li><a href="../BillingClient/addService.html">AÑADIR CONSUMO</a></li>
-                </ul>
-              </li>  
+              <li><a href="../DeleteABook/DeleteABook.html">ELIMINAR RESERVAR</a></li>  
+              <li><a href="../BillingClient/billingClient.html">FACTURAR CLIENTE</a></li>
             </ul>
           </nav>
         </header>
       <div id="Center">
         <h1 id="Subtitle">Eliminar reserva</h1>
-        <p id="idRecepcionist">Recepcionista No: </p>
-        <h3>Id. Recepcionista</h3>
-        <p> Hotel:</p>
-        <h3>Nombre Hotel</h3>
-        <br>
-        <br>
-        <button class="btn" id="button" onclick=getReserveList()>Actualizar reservas</button>              
+        <button class="btn" id="button">Actualizar reservas</button>              
         <div class="section">
             <table>
               <thead>
@@ -42,17 +31,17 @@
                   <th>Nombre titular</th>
                 </tr>
               </thead>
-              <tbody id="reserveTable">
+              <tbody id="res">
               </tbody>
             </table>
         </div>
         <li>
           <Label for="ChooseRoom">Escriba id reserva a eliminar:</Label>
-          <input type="ChooseRoom" id="idReserve">
+          <input type="ChooseRoom">
         </li>
-        <input type=button onclick=deleteReserve() value="Eliminar reserva" id="EliminarReserva">
+        <input type="submit" value="Eliminar reserva">
       </div>
     </div>
-    <script src="../BookARoom/bookARoomJava.js"></script>
+    <script src="bookARoomJava.js"></script>
 </body>
 </html>

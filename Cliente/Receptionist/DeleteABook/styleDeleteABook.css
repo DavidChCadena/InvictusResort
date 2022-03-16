@@ -54,17 +54,14 @@ html, body {
 
   #HotelName {
     margin-left: 40px;
-    margin-top: 30px;
     display: inline-block;
     color: #000742 ;
     font-size: 35px;
     font-weight: bold;
-    position: absolute;
-  } 
+  }  
 
   header{
     margin-top: -5px;
-    margin-left: 300px;
     font-family: Calibri;
     font-size: 18px;
     display: inline-block;
@@ -95,9 +92,6 @@ html, body {
   }
   #menu>li>ul{
     display: none;
-    position: absolute;
-    background-color: #FF7038;
-    padding: 0px;
   }
   #menu>li:hover>ul {
     display:block;
@@ -185,28 +179,4 @@ html, body {
   
   label {
     font-size: 25px;
-  }
-
-  #idRecepcionist {
-    margin-left: 30px;
-  }
-
-  #EliminarReserva {
-    width: 30%;
-    font-size: 25px;
-    margin-left: 35%;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    color: black;
-    background-color: #ff70388f;
-  }
-
-  p {
-    display: inline;
-    font-size: 20px;
-    margin-left: 5px;
-  }
-  
-  h3 {
-    display: inline;
   }

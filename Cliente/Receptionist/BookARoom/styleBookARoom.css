@@ -60,12 +60,10 @@ html, body {
     color: #000742 ;
     font-size: 35px;
     font-weight: bold;
-    position: absolute;
   }  
 
   header{
     margin-top: -5px;
-    margin-left: 300px;
     font-family: Calibri;
     font-size: 18px;
     display: inline-block;
@@ -185,28 +183,4 @@ html, body {
 
   label {
     font-size: 25px;
-  }
-
-  #Reservar {
-      width: 20%;
-      margin-left: 40%;
-      margin-top: 30px;
-      color: black;
-      font-weight: bold;
-      background-color: #ff70388f;
-    
-  }
-
-  #idRecepcionist {
-    margin-left: 30px;
-  }
-
-  p {
-    display: inline;
-    font-size: 20px;
-    margin-left: 5px;
-  }
-  
-  h3 {
-    display: inline;
   }

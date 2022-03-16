@@ -16,12 +16,7 @@
               <li><a href="../ClientRegister/registerClient.html">REGISTRAR CLIENTE</a></li>
               <li><a href="../BookARoom/bookARoom.html">RESERVAR HABITACION</a></li>
               <li><a href="../DeleteABook/DeleteABook.html">ELIMINAR RESERVAR</a></li>  
-              <li><a href="">FACTURAR CLIENTE</a>
-                <ul id="DropDown">
-                  <li><a href="../BillingClient/billingClient.html">CREAR FACTURA</a></li>
-                  <li><a href="../BillingClient/addService.html">AÑADIR CONSUMO</a></li>
-                </ul>
-              </li> 
+              <li><a href="../BillingClient/billingClient.html">FACTURAR CLIENTE</a></li>
             </ul>
           </nav>
         </header>
@@ -68,17 +63,17 @@
         </div>
         <li>
           <Label for="ChooseRoom">Escriba id habitación a reservar:</Label>
-          <input type="ChooseRoom" id="idRoom">
+          <input type="ChooseRoom">
         </li>
         <li>
           <label for="ChooseInitDate">Seleccione fecha inicial:</label>
-          <input type="date" id="checkIn">
+          <input type="date">
         </li>
         <li>
           <label for="ChooseFinalDate">Seleccione fecha final:</label>
-          <input type="date" id=checkOut>
+          <input type="date">
         </li>
-        <input type=button onclick=reserve() value="Reservar" id="Reservar">
+        <input type="submit" value="Reservar">
       </div>
     </div>
     <script src="bookARoomJava.js"></script>

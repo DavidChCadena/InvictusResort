@@ -16,64 +16,19 @@
               <li><a href="../ClientRegister/registerClient.html">REGISTRAR CLIENTE</a></li>
               <li><a href="../BookARoom/bookARoom.html">RESERVAR HABITACION</a></li>
               <li><a href="../DeleteABook/DeleteABook.html">ELIMINAR RESERVAR</a></li>  
-              <li><a href="">FACTURAR CLIENTE</a>
-                <ul id="DropDown">
-                  <li><a href="'../BillingClient/billingClient.html'; " >CREAR FACTURA</a></li>
-                  <li><a href="../BillingClient/addService.html">AÑADIR CONSUMO</a></li>
-                </ul>
-              </li>               
+              <li><a href="../BillingClient/billingClient.html">FACTURAR CLIENTE</a></li>
             </ul>
           </nav>
         </header>
       <div id="Center">
-        <h1 id="Subtitle">Crear factura</h1>
-        <p id="idRecepcionist">Recepcionista No: </p>
-        <h3>Id. Recepcionista</h3>
-        <p> Hotel:</p>
-        <h3>Nombre Hotel</h3>
-        <br>
-        <br>
-        <button class="btn" id="button" onclick=getClientList()>Actualizar clientes</button>
-        <div class="section">
-            <table>
-              <thead>
-                <tr>
-                  <th>Id. Cliente</th>
-                  <th>Nombre cliente</th>
-                </tr>
-              </thead>
-              <tbody id="clientTable">
-
-              </tbody>
-            </table>
-        </div>
-        <li>
-          <Label for="idClient">Escriba id cliente a crear fractura:</Label>
-          <input type="idClient" id="idClient">
-        </li>
-        <input type=button onclick=billingClient() value="Crear factura" id="Crear">
-        <div class="section">
-          <table>
-            <thead>
-              <tr>
-                <th>Id. Reserva</th>
-                <th>Estado</th>
-                <th>Abono</th>
-                <th>Deuda</th>
-              </tr>
-            </thead>
-            <tbody id="reserveTable">
-
-            </tbody>
-          </table>
+        <h1 id="Welcome">Bienvenido "Nombre del usuario"</h1>
+        <p id="Paragraph">
+          Para nosotros es muy importante su cómoda participación y también 
+          el buen funcionamiento del aplicativo,
+          así que le pedimos que sea comunicada cualquier inconformidad
+        </p>
+        <img id="HotelImage" src="hotelImagen.jpg" alt="Imagen del hotel">
       </div>
-      <li>
-        <Label for="idClient">Escriba monto de abono: (No es obligatorio)</Label>
-        <input type="idClient" id="payment">
-        <input type=button onclick=billingClient() value="Abonar" id="Abonar">
-      </li>  
-      </div>
-      <script src="modeClient.js"></script>
     </div>
 </body>
-</html> 
+</html>

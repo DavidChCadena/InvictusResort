@@ -60,7 +60,6 @@ html, body {
     color: #000742 ;
     font-size: 35px;
     font-weight: bold;
-    position: absolute;
   }  
 
   header{
@@ -86,9 +85,6 @@ html, body {
     display: block;
     text-decoration: none;
     width: 140px;
-  }
-  #DropDown li {
-    margin: 5px;
   }
   #menu li>a:hover{
     color: white;
