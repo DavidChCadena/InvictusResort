@@ -3,12 +3,18 @@ const port = 3000
 const app = express()
 const bcrypt = require('bcrypt')
 const Pool = require('pg').Pool
+const axios = require('axios')
 var cors = require('cors')
 var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json()
-const axios = require('axios')
+var tokens = [];
+
 
 app.use(cors())
+app.use(express.urlencoded({
+	extended:true
+}));
+
 
 const pool = new Pool({
   user: 'postgres',
@@ -164,6 +170,42 @@ app.get('/products', (req, res) => {
     res.send(error)
   })
 })
+
+app.post('/api/products', jsonParser,(req,res)=>{
+	const id = req.body["id"];
+	tokens.forEach(contenido => {
+		if(contenido[0] === id){
+			var user = {id: id}
+			let headConfig = {
+				headers: {'authorization':contenido[1]}
+			}
+			axios.post('http://ec2-54-159-11-0.compute-1.amazonaws.com:3050/api/products',
+				user,headConfig
+			)
+				.then(function(response){
+					res.send(response.data)
+				})
+				.catch(function(error){
+					res.send(error);
+				})
+		}
+	});
+});
+
+app.post('/login_a',jsonParser,(req,res)=>{
+	const id = req.body["id"]
+  console.log(req.body)
+	axios.post('http://ec2-54-159-11-0.compute-1.amazonaws.com:3050/api/register', {
+    id: id
+  })
+  .then(function (response) {
+		tokens.push([id,response.data.token]);
+    res.send(response.data.token);
+  })
+  .catch(function (error) {
+    console.log("error");
+  });	
+});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
