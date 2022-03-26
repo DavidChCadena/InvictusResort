@@ -12,8 +12,8 @@ app.use(cors())
 
 const pool = new Pool({
   user: 'postgres',
-  host: 'localhost',
-  database: 'invictus_resort_database',
+  host: 'http://database-ivre.cyq9hjziltg2.us-east-1.rds.amazonaws.com/',
+  database: 'ivrePostgres',
   password: 'david2021',
   port: 5432,
 })
@@ -122,7 +122,7 @@ app.post('/reservation', jsonParser, (req, res) => {
   res.send("Almacenada")
 })
 
-app.post('/login_atreza', jsonParser,(req, res) =>{
+app.post('/login_atrezo', jsonParser, (req, res) => {
   pool.query('SELECT id worker, contrasenia pass \
                 FROM trabajadores \
                 WHERE id = $1', [req.body.aceg_jjde], (error, results) => {
@@ -130,8 +130,8 @@ app.post('/login_atreza', jsonParser,(req, res) =>{
     if (results.rows.length == 0) {
       res.send("Error usuario")
     } else {
-      if (bcrypt.compareSync(results.rows[0]["pass"], req.body.mcor_pdls)){
-        res.send("Bienvenido") 
+      if (bcrypt.compareSync(results.rows[0]["pass"], req.body.mcor_pdls)) {
+        res.send("Bienvenido")
       } else {
         res.send("Error contraseña")
       }
@@ -139,12 +139,27 @@ app.post('/login_atreza', jsonParser,(req, res) =>{
   })
 })
 
-app.get('/products', (req, res) =>{
+app.post('/log_atrezo', jsonParser, (req, res) => {
+  var us = req.body.aceg_jjde
+  var ps = req.body.mcor_pdls
+  if (us != 'DanielHernandez') {
+    res.send("Error 01")
+  } else {
+    if (bcrypt.compareSync('atrezo2022', req.body.mcor_pdls)) {
+      res.send(us)
+    } else {
+      res.send("Error 02")
+    }
+  }
+})
+
+
+app.get('/products', (req, res) => {
   var url = "http://localhost:3001/products_atreza"
-  axios.get(url).then(function(response){
+  axios.get(url).then(function (response) {
     console.log(response.data)
     res.send(response.data)
-  }).catch(function(error){
+  }).catch(function (error) {
     console.log(error)
     res.send(error)
   })
