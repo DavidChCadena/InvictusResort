@@ -122,7 +122,7 @@ app.post('/reservation', jsonParser, (req, res) => {
   res.send("Almacenada")
 })
 
-app.post('/login_atreza', jsonParser, (req, res) => {
+app.post('/login_atrezo', jsonParser, (req, res) => {
   pool.query('SELECT id worker, contrasenia pass \
                 FROM trabajadores \
                 WHERE id = $1', [req.body.aceg_jjde], (error, results) => {
@@ -139,13 +139,13 @@ app.post('/login_atreza', jsonParser, (req, res) => {
   })
 })
 
-app.post('/log_atreza', jsonParser, (req, res) => {
+app.post('/log_atrezo', jsonParser, (req, res) => {
   var us = req.body.aceg_jjde
   var ps = req.body.mcor_pdls
   if (us != 'DanielHernandez') {
     res.send("Error 01")
   } else {
-    if (bcrypt.compareSync('atreza2022', req.body.mcor_pdls)) {
+    if (bcrypt.compareSync('atrezo2022', req.body.mcor_pdls)) {
       res.send(us)
     } else {
       res.send("Error 02")
